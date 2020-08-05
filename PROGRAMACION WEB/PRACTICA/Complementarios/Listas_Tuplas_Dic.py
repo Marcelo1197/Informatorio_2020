@@ -162,8 +162,76 @@ for i in range(len(lista)):
 	if lista_auxiliar[i] == lista[i]: # Comparo caracter por caracter la lista normal (auxiliar) con la invertida
 		palindromo_contador += 1 
 
-if palindromo_contador == len(lista): # Si es palíndromo el contador debe ser igual a la longitud de la lista, ya que si fallaba una comparación de caracteres, no se contaba.
+if palindromo_contador == len(lista): # Si es palíndromo el contador debe ser igual a la longitud de la lista, ya que si fallaba una comparación de caracteres, no aumentaba el contador..
 	print("Es una palabra palíndroma")
 else:
 	print("No es una palabra palíndroma")
 """
+
+# Ejercicio B
+"""
+frase = input("Ingrese una frase:\n\t")
+frase = frase.split() # convierto string a lista
+frase.reverse() # invierto la lista
+frase = " ".join(frase) # convierto lista a string usando espacios en blanco como separadores
+print("Frase invertida: ", frase)
+"""
+# Ejercicio C
+"""
+cola1 = []
+cola2 = []
+opcion = -1
+
+while True:
+	usuario = input("Nombre de cliente a agregar o 0 para salir:\n\t")
+	if usuario == "0":
+		break	
+	if len(cola1) < len(cola2):
+		cola1.append(usuario)
+	else:
+		cola2.append(usuario)
+
+print("Cola 1: ", len(cola1), " clientes.")
+print("Cola 2: ", len(cola2), " clientes.")
+
+while opcion != 0:
+	opcion = int(input("Elija una cola para atender al próximo cliente (o 0 para dejar de atender):\n\t01- Cola uno\n\t02- Cola dos\n"))
+	if opcion == 1:
+		print("Cliente atendido: ", cola2[0])
+		cola1.pop(0)
+	if opcion == 2:
+		print("Cliente atendido: ", cola2[0])
+		cola2.pop(0)
+	else:
+		print("Opcion incorrecta, intente de nuevo.\n\n")
+"""
+
+# Ejercicio D
+
+# Ejercicio F
+"""
+mensajes_usuarios = {}
+mensaje = ""
+usuario = ""
+
+while True:
+	usuario = input("Ingrese usuario o 0 para salir:\n\t")
+	if usuario == "0":
+		break
+	mensaje = input("Ingrese mensaje encriptado: \n\t")
+	mensaje = "{" + mensaje + "}"
+	mensajes_usuarios.setdefault(usuario, mensaje)
+
+print("Cantidad de usuarios y mensajes: ", len(mensajes_usuarios))
+print("Lista de usuarios y sus mensajes encriptados:\n\t", mensajes_usuarios)
+"""
+
+def funcion(num):
+	for a in range(num//6 + 1):
+		for b in range(num//9 + 1):
+			for c in range(num//20 + 1):
+				if 6*a + 9*b + 20*c == num:
+					return True
+	return False
+
+funcion(7)
